@@ -1,0 +1,114 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":\"5.65\"}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "147a85e445e2e8d0a503",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"26932b15d31416d7b881\",\"layouts\":[{\"id\":0,\"position\":{\"x\":120.75512152632373,\"y\":142.7105981674735,\"z\":0,\"width\":238.76580847250375,\"height\":174.2715958391263,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(output_df.Diagnosis)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Diagnosis\"}},\"Function\":3},\"Name\":\"Min(output_df.Diagnosis)\",\"NativeReferenceName\":\"First Diagnosis\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 174.27,
+          "width": 238.77,
+          "x": 120.76,
+          "y": 142.71,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"425ff143ddaedb884290\",\"layouts\":[{\"id\":0,\"position\":{\"x\":399.31523141091145,\"y\":174.2715958391263,\"z\":1000,\"width\":282.6767617548033,\"height\":111.1496004958207,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(output_df.Diabetes_Type)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Diabetes_Type\"}},\"Function\":3},\"Name\":\"Min(output_df.Diabetes_Type)\",\"NativeReferenceName\":\"First Diabetes_Type\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 111.15,
+          "width": 282.68,
+          "x": 399.32,
+          "y": 174.27,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"57e0111c790269c30b5e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":624.3588669826966,\"y\":673.7586894252836,\"z\":6000,\"width\":333.4488014874621,\"height\":38.422084122012095,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Patient Information \",\"textStyle\":{\"fontSize\":\"14pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 38.42,
+          "width": 333.45,
+          "x": 624.36,
+          "y": 673.76,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"60c84366bb25efd723f2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":399.31523141091145,\"y\":591.4256520209719,\"z\":4000,\"width\":816.469287592757,\"height\":82.33303740431164,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"output_df.Age\"},{\"queryRef\":\"output_df.BMI\"},{\"queryRef\":\"output_df.HbA1c\"},{\"queryRef\":\"output_df.Fasting_Glucose\"},{\"queryRef\":\"output_df.Family_History\"},{\"queryRef\":\"output_df.Hypertension\"},{\"queryRef\":\"output_df.Is_Pregnant\"},{\"queryRef\":\"output_df.Kidney_Function\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Age\"},\"Name\":\"output_df.Age\",\"NativeReferenceName\":\"Age\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"BMI\"},\"Name\":\"output_df.BMI\",\"NativeReferenceName\":\"BMI\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"HbA1c\"},\"Name\":\"output_df.HbA1c\",\"NativeReferenceName\":\"HbA1c\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Fasting_Glucose\"},\"Name\":\"output_df.Fasting_Glucose\",\"NativeReferenceName\":\"Fasting_Glucose\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Family_History\"},\"Name\":\"output_df.Family_History\",\"NativeReferenceName\":\"Family_History\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Hypertension\"},\"Name\":\"output_df.Hypertension\",\"NativeReferenceName\":\"Hypertension\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Is_Pregnant\"},\"Name\":\"output_df.Is_Pregnant\",\"NativeReferenceName\":\"Is_Pregnant\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Kidney_Function\"},\"Name\":\"output_df.Kidney_Function\",\"NativeReferenceName\":\"Kidney_Function\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Age\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnHeaders\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"grid\":[{\"properties\":{\"gridVertical\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"outlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}},\"outlineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 82.33,
+          "width": 816.47,
+          "x": 399.32,
+          "y": 591.43,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"63d4383f41b06da0e5e5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":710.8085562572238,\"y\":174.2715958391263,\"z\":2000,\"width\":536.5369604180975,\"height\":111.1496004958207,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(output_df.Treatment)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Treatment\"}},\"Function\":3},\"Name\":\"Min(output_df.Treatment)\",\"NativeReferenceName\":\"First Treatment\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 111.15,
+          "width": 536.54,
+          "x": 710.81,
+          "y": 174.27,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"66f89ad54ba347333251\",\"layouts\":[{\"id\":0,\"position\":{\"x\":447.34283656342654,\"y\":351.2876262583963,\"z\":7000,\"width\":721.7862945777987,\"height\":109.77738320574885,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Treatment_Details xlsx.Description)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Treatment_Details xlsx\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Description\"}},\"Function\":3},\"Name\":\"Min(Treatment_Details xlsx.Description)\",\"NativeReferenceName\":\"First Description\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 109.78,
+          "width": 721.79,
+          "x": 447.34,
+          "y": 351.29,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"79e84c9d5365276f39ff\",\"layouts\":[{\"id\":0,\"position\":{\"x\":511.837049196804,\"y\":461.06500946414513,\"z\":8000,\"width\":559.8646543493192,\"height\":98.79964488517396,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Treatment_Details xlsx.Mechanism_of_Action)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Treatment_Details xlsx\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Mechanism_of_Action\"}},\"Function\":3},\"Name\":\"Min(Treatment_Details xlsx.Mechanism_of_Action)\",\"NativeReferenceName\":\"First Mechanism_of_Action\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.80,
+          "width": 559.86,
+          "x": 511.84,
+          "y": 461.07,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"c7f28f3755a321cb5665\",\"layouts\":[{\"id\":0,\"position\":{\"x\":315.6099767165279,\"y\":20.58325935107791,\"z\":5000,\"width\":732.7640328983736,\"height\":64.49421263337744,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Personalized Diabetes Treatment Plan\",\"textStyle\":{\"fontSize\":\"32pt\"}}]}]}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.49,
+          "width": 732.76,
+          "x": 315.61,
+          "y": 20.58,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"fb1b7e35d99e58961274\",\"layouts\":[{\"id\":0,\"position\":{\"x\":120.75512152632373,\"y\":359.52092999882746,\"z\":3000,\"width\":238.76580847250375,\"height\":231.90472202214443,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(output_df.Diagnosis_Confidence)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Diagnosis_Confidence\"}},\"Function\":0},\"Name\":\"Sum(output_df.Diagnosis_Confidence)\",\"NativeReferenceName\":\"Sum of Diagnosis_Confidence\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Diagnosis_Confidence\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(output_df.Diagnosis_Confidence)\":{\"formatString\":\"0.00%;-0.00%;0.00%\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"axis\":[{\"properties\":{\"max\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"min\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 231.90,
+          "width": 238.77,
+          "x": 120.76,
+          "y": 359.52,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

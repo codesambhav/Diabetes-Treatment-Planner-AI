@@ -1,0 +1,51 @@
+Patient_ID,Age,BMI,HbA1c,Fasting_Glucose,Family_History,Hypertension,Is_Pregnant,Kidney_Function,Diabetes_Status,Diabetes_Type,Recommended_Treatment
+P001,55,31.2,6.8,135,1,1,0,Good,1,Type 2,Metformin
+P002,45,24.5,5.5,95,0,0,0,Good,0,None,Lifestyle_Modification
+P003,68,34.1,7.5,150,1,1,0,Good,1,Type 2,SGLT2_Inhibitor
+P004,28,29.8,7.1,140,1,0,0,Good,1,Type 1,Insulin_Therapy
+P005,72,28.5,8.1,165,1,1,0,Moderate,1,Type 2,Insulin_Therapy
+P006,51,33.5,7.2,142,0,1,0,Good,1,Type 2,GLP-1_Agonist
+P007,31,26.1,6.9,138,0,0,1,Good,1,Gestational,Metformin
+P008,65,30.1,6.9,138,1,1,0,Poor,1,Type 2,Insulin_Therapy
+P009,59,27.8,6.6,130,0,1,0,Good,1,Type 2,Metformin
+P010,42,26.4,5.8,105,1,0,0,Good,0,None,Lifestyle_Modification
+P011,25,24.2,7.5,155,0,0,0,Good,1,Type 1,Insulin_Therapy
+P012,53,32.8,7.1,148,1,1,0,Good,1,Type 2,GLP-1_Agonist
+P013,41,21.9,5.1,85,0,0,0,Good,0,None,Lifestyle_Modification
+P014,69,29.3,7.8,155,0,1,0,Good,1,Type 2,SGLT2_Inhibitor
+P015,33,28.1,7.2,145,1,0,1,Good,1,Gestational,Insulin_Therapy
+P016,62,31.7,7.0,140,1,0,0,Good,1,Type 2,Metformin
+P017,49,25.3,5.6,98,0,0,0,Good,0,None,Lifestyle_Modification
+P018,22,25.5,8.0,170,0,0,0,Good,1,Type 1,Insulin_Therapy
+P019,56,33.0,7.3,152,1,1,0,Good,1,Type 2,GLP-1_Agonist
+P020,30,27.8,6.8,135,0,1,1,Good,1,Gestational,Metformin
+P021,66,28.2,7.1,141,0,1,0,Good,1,Type 2,Metformin
+P022,38,29.5,6.0,115,1,0,0,Good,0,None,Lifestyle_Modification
+P023,74,31.5,8.5,175,1,1,0,Poor,1,Type 2,Insulin_Therapy
+P024,29,23.1,7.2,148,0,0,0,Good,1,Type 1,Insulin_Therapy
+P025,58,35.1,7.7,160,1,1,0,Good,1,Type 2,GLP-1_Agonist
+P026,47,26.8,5.9,110,0,0,0,Good,0,None,Lifestyle_Modification
+P027,70,30.3,7.9,162,1,1,0,Good,1,Type 2,SGLT2_Inhibitor
+P028,32,28.9,7.0,139,0,1,1,Good,1,Gestational,Metformin
+P029,63,27.5,6.7,133,0,1,0,Good,1,Type 2,Metformin
+P030,21,24.9,7.8,165,1,0,0,Good,1,Type 1,Insulin_Therapy
+P031,54,33.2,7.4,154,1,1,0,Moderate,1,Type 2,GLP-1_Agonist
+P032,44,25.1,5.4,94,0,0,0,Good,0,None,Lifestyle_Modification
+P033,76,29.8,8.2,170,0,1,0,Moderate,1,Type 2,SGLT2_Inhibitor
+P034,35,22.4,5.3,91,0,0,0,Good,0,None,Lifestyle_Modification
+P035,61,30.9,6.9,138,1,0,0,Good,1,Type 2,Metformin
+P036,57,36.2,8.0,168,1,1,0,Good,1,Type 2,GLP-1_Agonist
+P037,24,26.1,8.2,175,0,0,0,Good,1,Type 1,Insulin_Therapy
+P038,69,27.9,7.6,158,0,1,0,Good,1,Type 2,Metformin
+P039,34,29.5,7.1,142,0,0,1,Good,1,Gestational,Insulin_Therapy
+P040,78,32.0,8.8,185,1,1,0,Poor,1,Type 2,Insulin_Therapy
+P041,48,28.3,6.2,120,1,0,0,Good,0,None,Lifestyle_Modification
+P042,64,31.8,7.3,150,1,1,0,Good,1,Type 2,Metformin
+P043,36,23.5,5.6,102,0,0,0,Good,0,None,Lifestyle_Modification
+P044,71,33.0,8.1,166,1,1,0,Moderate,1,Type 2,SGLT2_Inhibitor
+P045,27,25.8,7.9,168,0,0,0,Good,1,Type 1,Insulin_Therapy
+P046,52,29.9,6.5,128,0,1,0,Good,1,Type 2,Metformin
+P047,67,34.5,7.8,162,1,0,0,Good,1,Type 2,GLP-1_Agonist
+P048,39,26.4,5.7,108,1,0,0,Good,0,None,Lifestyle_Modification
+P049,73,28.8,8.4,172,0,1,0,Poor,1,Type 2,Insulin_Therapy
+P050,50,30.5,6.8,136,1,1,0,Good,1,Type 2,Metformin

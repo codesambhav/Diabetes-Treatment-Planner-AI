@@ -1,0 +1,22 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["output_df","p_Age","p_BMI","p_HbA1c","p_Fasting_Glucose","p_Family_History","p_Hypertension","p_Is_Pregnant","p_Kidney_Function","PatientInputTable","Treatment_Details xlsx"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.145.1105.0 (25.07)+decbc46fce458c5b8d5109d6f32a743f2ac949c8
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table output_df
+ref table PatientInputTable
+ref table 'Treatment_Details xlsx'
+
+ref cultureInfo en-IN
+

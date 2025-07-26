@@ -1,0 +1,56 @@
+expression p_Age = 25 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 53efc159-cbaf-4fcb-8735-c4ef11ac6b4c
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression p_BMI = 15 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 5a4d7170-3ceb-4a72-953f-da501f6d2ce0
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression p_HbA1c = 7.4 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 8cadb04e-a284-4c31-abb8-726d5a73e294
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression p_Fasting_Glucose = 120 meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: cdb638c6-9116-411a-a14a-7c7d6dabd4a4
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression p_Family_History = 1 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: ca8997cb-772a-4686-98f6-17fd4e1ac257
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression p_Hypertension = 1 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: dbfc9c49-64ae-45eb-8d65-2b0aa7dfca45
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression p_Is_Pregnant = 0 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 2f2609b5-f4f2-422a-bd0b-87ecd03ff49a
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression p_Kidney_Function = "Good" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f59d67d9-726c-441d-9864-798f3d8644c5
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

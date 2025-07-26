@@ -1,0 +1,205 @@
+table output_df
+	lineageTag: bbcd1685-c3c6-4b3b-aed6-84da6ad5d192
+
+	measure 'Confidence Score' = SELECTEDVALUE(output_df[Diagnosis_Confidence])
+		lineageTag: 4ae84953-19ff-4f4e-95ab-9e51cac32238
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Age
+		dataType: string
+		lineageTag: 875fc23b-a91d-4ece-91d7-782e7702f0f1
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column BMI
+		dataType: string
+		lineageTag: 445bd2e2-38c9-485c-b82f-1ab6517e8f93
+		summarizeBy: none
+		sourceColumn: BMI
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HbA1c
+		dataType: string
+		lineageTag: fbbc5b45-a2bc-4bdc-a5e0-2260d41faabf
+		summarizeBy: none
+		sourceColumn: HbA1c
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fasting_Glucose
+		dataType: string
+		lineageTag: ba89e691-f586-4315-93df-2ab7618a3acf
+		summarizeBy: none
+		sourceColumn: Fasting_Glucose
+
+		annotation SummarizationSetBy = Automatic
+
+	column Family_History
+		dataType: string
+		lineageTag: 0309c86e-7fb0-4f3a-9da6-b9f6129975bb
+		summarizeBy: none
+		sourceColumn: Family_History
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hypertension
+		dataType: string
+		lineageTag: 36ffd91f-fe62-4d6e-954d-ca65c28bed72
+		summarizeBy: none
+		sourceColumn: Hypertension
+
+		annotation SummarizationSetBy = Automatic
+
+	column Is_Pregnant
+		dataType: string
+		lineageTag: 547df4bd-dfde-4271-ac66-c674f0e8bf8b
+		summarizeBy: none
+		sourceColumn: Is_Pregnant
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kidney_Function
+		dataType: string
+		lineageTag: 8e372066-2579-4337-ad1a-d74e0b845f3c
+		summarizeBy: none
+		sourceColumn: Kidney_Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column Diagnosis
+		dataType: string
+		lineageTag: 092fad1c-4431-4b7a-8665-27d681f1694c
+		summarizeBy: none
+		sourceColumn: Diagnosis
+
+		annotation SummarizationSetBy = Automatic
+
+	column Diagnosis_Confidence
+		dataType: double
+		lineageTag: 1a845801-8bcc-40eb-bad0-64419833267f
+		summarizeBy: sum
+		sourceColumn: Diagnosis_Confidence
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Diabetes_Type
+		dataType: string
+		lineageTag: 4383a247-7bb5-45e3-99c8-60cb641a31f3
+		summarizeBy: none
+		sourceColumn: Diabetes_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Treatment
+		dataType: string
+		lineageTag: 3e687de1-6a1d-4f3b-bdc7-f7ba77f92cfe
+		summarizeBy: none
+		sourceColumn: Treatment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition output_df = m
+		mode: import
+		source = ```
+				let
+				    Source = Python.Execute(
+				        "
+				import pandas as pd
+				from sklearn.model_selection import train_test_split
+				from sklearn.preprocessing import LabelEncoder
+				from sklearn.linear_model import LogisticRegression
+				from sklearn.ensemble import RandomForestClassifier
+				import warnings
+				
+				warnings.filterwarnings('ignore')
+				
+				# --- CLASS DEFINITION ---
+				class DiabetesAnalysisSystem:
+				    def __init__(self):
+				        self.status_model = LogisticRegression(random_state=42)
+				        self.type_model = RandomForestClassifier(random_state=42)
+				        self.treatment_model = RandomForestClassifier(random_state=42)
+				        self.encoders = {}
+				        self.feature_columns = []
+				
+				    def _prepare_data(self, df):
+				        processed_df = df.copy()
+				        le = LabelEncoder()
+				        processed_df['Kidney_Function'] = le.fit_transform(processed_df['Kidney_Function'])
+				        self.encoders['Kidney_Function'] = le
+				        return processed_df
+				
+				    def train_models(self, file_path):
+				        try:
+				            df = pd.read_csv(file_path)
+				        except FileNotFoundError:
+				            raise
+				
+				        df_processed = self._prepare_data(df)
+				        self.feature_columns = ['Age', 'BMI', 'HbA1c', 'Fasting_Glucose', 'Family_History', 'Hypertension', 'Is_Pregnant', 'Kidney_Function']
+				        
+				        X_status = df_processed[self.feature_columns]
+				        y_status = df_processed['Diabetes_Status']
+				        self.status_model.fit(X_status, y_status)
+				
+				        df_diabetic = df_processed[df_processed['Diabetes_Status'] == 1].copy()
+				        if df_diabetic.empty: return
+				
+				        X_diabetic = df_diabetic[self.feature_columns]
+				        y_type = df_diabetic['Diabetes_Type']
+				        self.type_model.fit(X_diabetic, y_type)
+				        y_treatment = df_diabetic['Recommended_Treatment']
+				        self.treatment_model.fit(X_diabetic, y_treatment)
+				
+				    def predict_for_powerbi(self, patient_data):
+				        patient_df = pd.DataFrame([patient_data])
+				        patient_df['Kidney_Function'] = self.encoders['Kidney_Function'].transform(patient_df['Kidney_Function'])
+				        patient_df = patient_df[self.feature_columns]
+				        status_prediction = self.status_model.predict(patient_df)[0]
+				        status_proba = self.status_model.predict_proba(patient_df)[0]
+				        result = {}
+				        if status_prediction == 0:
+				            result['Diagnosis'] = 'Not Diabetic'
+				            result['Diagnosis_Confidence'] = status_proba[0]
+				            result['Diabetes_Type'] = 'N/A'
+				            result['Treatment'] = 'Lifestyle Modification'
+				        else:
+				            result['Diagnosis'] = 'Diabetic'
+				            result['Diagnosis_Confidence'] = status_proba[1]
+				            result['Diabetes_Type'] = self.type_model.predict(patient_df)[0]
+				            result['Treatment'] = self.treatment_model.predict(patient_df)[0]
+				        return result
+				
+				# --- POWER BI EXECUTION BLOCK ---
+				patient_input = dataset.to_dict('records')[0]
+				
+				file_path = r'C:\code\diabetes_enhanced_data.csv'
+				
+				analysis_system = DiabetesAnalysisSystem()
+				analysis_system.train_models(file_path)
+				prediction_result = analysis_system.predict_for_powerbi(patient_input)
+				
+				final_data = {**patient_input, **prediction_result}
+				output_df = pd.DataFrame([final_data])
+				",
+				        [dataset = PatientInputTable]
+				    ),
+				    output_df1 = Source{[Name = "output_df"]}[Value]
+				in
+				    output_df1
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
