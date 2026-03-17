@@ -1,1 +1,49 @@
-Power BI Model Logic: AI Diabetes PredictionThis document explains the technical architecture and workflow of the Power BI prediction tool.Last Updated: 28-July-20251. Problem Statement & AbstractProblem Statement: Personalized Treatment Planning.Abstract: Develop a machine learning model to create personalized treatment plans for patients, considering their medical history, genetic information, and current health conditions. This solution enables precision medicine, improving treatment effectiveness and patient satisfaction.2. Project ArchitectureThis Power BI project functions as an interactive decision-support tool. It uses a hybrid machine learning system executed within Power Query to first diagnose a patient and then predict the effectiveness of multiple treatment options. The results are then analyzed by DAX measures to provide both a detailed comparison and an at-a-glance summary.The dataflow is as follows:User Input (Parameters) ➔ Python Script (Train & Predict) ➔ Output Table ➔ DAX Measures & Visuals3. Core Logic: Hybrid Python ScriptThe core of this project is a Python script that trains and executes a multi-stage prediction pipeline on the fly.Input: The script receives a single-row table (PatientInputTable) populated by the user via the "Edit parameters" window.Processing Steps:Train Diagnosis Models: The script first loads diabetes_enhanced_data.csv to train classification models to predict diabetes status and type.Train Effectiveness Model: It then loads diabetes_treatment_outcomes.csv to train a regression model to predict a future HbA1c value based on patient features and a given treatment.Generate Plan: For the input patient, it first predicts their diagnosis. Then, it loops through all possible treatments, using the regression model to predict the outcome for each one.Output: The script returns a multi-row table (output_df). Each row contains the full patient information, their diagnosis, a potential treatment option, and the predicted HbA1c for that option.4. DAX Measures for Analysis & SummarizationTo transform the raw model output into actionable insights, several DAX measures were created.Primary Summary Measures:These measures identify the single best treatment option from the model's output.[Best Predicted HbA1c]: Uses the MIN() function to find the lowest (most effective) predicted HbA1c value.[Best Recommended Treatment]: Uses a robust TOPN() and MINX() pattern to identify the name of the treatment corresponding to the best predicted HbA1c value.Automatic Detail Lookup Measures:These measures automatically display the details for the top-ranked treatment, creating a dynamic summary.[Best Treatment Description]: Uses the LOOKUPVALUE() function to find the description for the [Best Recommended Treatment] from the TreatmentDetails table.[Best Treatment MoA]: Uses LOOKUPVALUE() to find the mechanism of action for the [Best Recommended Treatment].5. Report Visuals & UsageThe report is designed to provide both a detailed comparison and a quick summary.At-a-Glance Summary:Cards display the patient's Diagnosis, Diabetes_Type, and the [Best Recommended Treatment].A Gauge visual displays the [Best Predicted HbA1c], providing an instant summary of the top outcome.Treatment Effectiveness Chart: A Clustered Bar Chart visualizes the Predicted_Future_HbA1c for every Treatment_Option, allowing for a clear comparison of all potential outcomes.Dynamic Details:Cards automatically display the [Best Treatment Description] and [Best Treatment MoA] for the top recommendation.The report is also interactive: clicking a specific bar on the chart will filter these detail cards to show information for the selected treatment.How to Use: To generate a new plan, the user edits the patient data via Home > Edit parameters, then clicks the main Refresh button to run the model and update all visuals.
+# Power BI Model Logic: Predictive Diabetes Treatment Planner
+
+This document explains the technical architecture, machine learning workflow, and validation metrics for the Power BI personalized treatment tool.
+
+**Last Updated:** 17-March-2026
+
+## 1. Problem Statement & Abstract
+* **Problem Statement:** Moving from "one-size-fits-all" diabetes care to personalized treatment planning.
+* **Abstract:** Developed a machine learning-driven decision support tool that analyzes clinical vitals (HbA1c, BMI, Fasting Glucose) to predict the most effective treatment path. The solution enables precision medicine by simulating the effectiveness of multiple treatments for a specific patient profile.
+
+## 2. Project Architecture
+The project functions as an interactive decision-support tool using a hybrid machine learning system executed within Power Query. It follows a modular architecture using the **Power BI Project (.pbip) folder approach** for version control.
+
+**The dataflow is as follows:**
+User Input (Parameters) ➔ Python Script (Train & Predict) ➔ Output Table ➔ DAX Measures & Visuals
+
+## 3. Core Logic: Hybrid Python Script
+The core of this project is a Python script that trains and executes a multi-stage prediction pipeline on the fly.
+* **Input:** A single-row table (`PatientInputTable`) populated via the "Edit parameters" window.
+* **Processing:** * Trains classification models (Random Forest) to predict diabetes status and type.
+    * Trains a regression model to predict future HbA1c values based on patient features and treatment options.
+* **Output:** A multi-row table (`output_df`) containing predicted HbA1c values for every potential treatment option (Insulin, Metformin, GLP-1, etc.).
+
+## 4. Model Validation & Performance
+The predictive engine was validated using a **Random Forest Classifier** with an **80/20 train-test split** on the 50-patient cohort.
+
+| Metric | Value | Clinical Significance |
+| :--- | :--- | :--- |
+| **Overall Accuracy** | **70.00%** | Demonstrates strong predictive patterns for a pilot clinical dataset. |
+| **Insulin Recall** | **100%** | High sensitivity; the model successfully identified 100% of patients requiring insulin. |
+| **Precision (Lifestyle)** | **100%** | Zero false positives for lifestyle-only recommendations. |
+
+> **Technical Note:** Performance was lower for SGLT2 Inhibitors due to class imbalance (n=3) in the training set. Future iterations will utilize SMOTE for oversampling.
+
+## 5. Feature Importance (Why the model makes decisions)
+Based on the Random Forest analysis, the following clinical features contributed most to the treatment recommendation:
+1. **HbA1c** (Primary Driver)
+2. **Fasting_Glucose**
+3. **BMI**
+4. **Kidney_Function** (Critical for drug safety filtering)
+
+## 6. DAX Measures for Analysis
+To transform the raw model output into actionable insights, several DAX measures analyze the Python output:
+* **`[Best Predicted HbA1c]`**: Finds the lowest (most effective) predicted HbA1c value.
+* **`[Best Recommended Treatment]`**: Robustly identifies the treatment name corresponding to the best predicted outcome.
+
+## 7. Usage & Safety Disclaimer
+* **Usage:** Edit patient data via **Home > Edit parameters** and click **Refresh** to run the ML model.
+* **Disclaimer:** This recommendation is generated by a Random Forest ML algorithm for decision support. Clinical oversight is required.
