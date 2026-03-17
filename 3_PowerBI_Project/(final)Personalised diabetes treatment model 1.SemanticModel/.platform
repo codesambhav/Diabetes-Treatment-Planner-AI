@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "(final)Personalised diabetes treatment model 1"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4629f8d0-1144-4cd3-a932-651b58ee7aa2"
+  }
+}

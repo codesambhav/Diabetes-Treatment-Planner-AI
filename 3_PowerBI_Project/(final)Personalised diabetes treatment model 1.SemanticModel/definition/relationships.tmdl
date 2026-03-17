@@ -1,0 +1,9 @@
+relationship AutoDetected_63388cec-6761-4d2d-ab7a-a82066dd2fca
+	fromColumn: output_df.Kidney_Function
+	toColumn: PatientInputTable.Kidney_Function
+
+relationship 44e258e4-ce1c-c5e4-fa1c-867ef9395b9e
+	crossFilteringBehavior: bothDirections
+	fromColumn: output_df.Treatment_Option
+	toColumn: TreatmentDetails.Treatment_Name
+

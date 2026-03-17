@@ -1,0 +1,43 @@
+table TreatmentDetails
+	lineageTag: 88a710d6-bd9c-472c-a40d-618f252bf830
+
+	column Treatment_Name
+		dataType: string
+		lineageTag: 025ac6c5-91dd-4347-99a3-63659344651e
+		summarizeBy: none
+		sourceColumn: Treatment_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: a06a77cc-d7c2-40dd-b0a8-cf8a8d73abd5
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mechanism_of_Action
+		dataType: string
+		lineageTag: 7f672b5f-28ce-4105-879d-0c9606630100
+		summarizeBy: none
+		sourceColumn: Mechanism_of_Action
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TreatmentDetails = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\code\Treatment_Details.xlsx"), null, true),
+				    Treatment_Details.xlsx_Sheet = Source{[Item="Treatment_Details.xlsx",Kind="Sheet"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Treatment_Details.xlsx_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Treatment_Name", type text}, {"Description", type text}, {"Mechanism_of_Action", type text}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

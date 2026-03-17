@@ -1,0 +1,158 @@
+table PatientInputTable
+	lineageTag: 57563b1c-173c-4764-a546-927a7da987cb
+
+	measure 'Best Predicted HbA1c' = MIN(output_df[Predicted_Future_HbA1c])
+		lineageTag: 69c377a6-f9d0-43ad-acbc-99515d2c7c3c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Best Recommended Treatment' =
+			
+			VAR Diagnosis = SELECTEDVALUE(output_df[Diagnosis])
+			RETURN
+			IF(
+			    Diagnosis = "Not Diabetic",
+			    "N/A",
+			    // This part runs only if the patient is diabetic
+			    MINX(
+			        TOPN(
+			            1,
+			            output_df,
+			            output_df[Predicted_Future_HbA1c],
+			            ASC
+			        ),
+			        output_df[Treatment_Option]
+			    )
+			)
+		lineageTag: d35898b3-c545-4a85-9498-949201c2554c
+
+	measure 'Best Treatment Description' =
+			
+			VAR Diagnosis = SELECTEDVALUE(output_df[Diagnosis])
+			RETURN
+			IF(
+			    Diagnosis = "Not Diabetic",
+			    "No treatment details required.",
+			    LOOKUPVALUE(
+			        TreatmentDetails[Description],
+			        TreatmentDetails[Treatment_Name],
+			        [Best Recommended Treatment]
+			    )
+			)
+		lineageTag: c454ccf3-91e7-4281-9b93-2a51226b4cbe
+
+	measure 'Best Treatment MoA' =
+			
+			VAR Diagnosis = SELECTEDVALUE(output_df[Diagnosis])
+			RETURN
+			IF(
+			    Diagnosis = "Not Diabetic",
+			    "",
+			    LOOKUPVALUE(
+			        TreatmentDetails[Mechanism_of_Action],
+			        TreatmentDetails[Treatment_Name],
+			        [Best Recommended Treatment]
+			    )
+			)
+		lineageTag: 0f2418dd-d05f-4d34-87e4-6450c0698221
+
+	column Age
+		dataType: double
+		lineageTag: c41bdde4-1726-4362-ba4b-dacb2d30bcf1
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BMI
+		dataType: double
+		lineageTag: 80e32304-2515-4aa6-91af-2380d5bd89d1
+		summarizeBy: none
+		sourceColumn: BMI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HbA1c
+		dataType: double
+		lineageTag: eefc85eb-e4d4-4a9e-9d26-3c5feb722016
+		summarizeBy: none
+		sourceColumn: HbA1c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fasting_Glucose
+		dataType: double
+		lineageTag: 3e4fe4ff-f0d7-428a-9c90-2fa5b54e818d
+		summarizeBy: none
+		sourceColumn: Fasting_Glucose
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Family_History
+		dataType: double
+		lineageTag: 5c5e35e9-aac6-4b67-879c-2a4304c2281d
+		summarizeBy: none
+		sourceColumn: Family_History
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Hypertension
+		dataType: double
+		lineageTag: a3a49200-89f2-4c3f-960e-949a97450db0
+		summarizeBy: none
+		sourceColumn: Hypertension
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Is_Pregnant
+		dataType: double
+		lineageTag: ed5f7743-3e2a-4a02-9386-eefa3671c397
+		summarizeBy: none
+		sourceColumn: Is_Pregnant
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Kidney_Function
+		dataType: string
+		lineageTag: 4ad8e7f1-7b05-4484-942b-660c9a731663
+		summarizeBy: none
+		sourceColumn: Kidney_Function
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PatientInputTable = m
+		mode: import
+		source = ```
+				let
+				    Source = #table(
+				        type table[
+				            Age=number, BMI=number, HbA1c=number, Fasting_Glucose=number, 
+				            Family_History=number, Hypertension=number, Is_Pregnant=number, 
+				            Kidney_Function=text
+				        ], 
+				        {
+				            {p_Age, p_BMI, p_HbA1c, p_Fasting_Glucose, p_Family_History, p_Hypertension, p_Is_Pregnant, p_Kidney_Function}
+				        }
+				    )
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

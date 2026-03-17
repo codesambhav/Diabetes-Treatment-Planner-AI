@@ -1,0 +1,144 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":\"5.65\"}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "147a85e445e2e8d0a503",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"26932b15d31416d7b881\",\"layouts\":[{\"id\":0,\"position\":{\"x\":76.84416824402419,\"y\":160.5494229384077,\"z\":0,\"width\":322.47106316688723,\"height\":112.52181778589257,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(output_df.Diagnosis)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Diagnosis\"}},\"Function\":3},\"Name\":\"Min(output_df.Diagnosis)\",\"NativeReferenceName\":\"First Diagnosis\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.52,
+          "width": 322.47,
+          "x": 76.84,
+          "y": 160.55,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"36c665b9c7f889b80c3c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":968.7854067907335,\"y\":612.0089113720499,\"z\":8000,\"width\":160.5494229384077,\"height\":39.79430141208395,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'blank'\"}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Understand Treatment'\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}},\"selector\":{\"id\":\"default\"}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'dc4cf015594265a71f62'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 39.79,
+          "width": 160.55,
+          "x": 968.79,
+          "y": 612.01,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"425ff143ddaedb884290\",\"layouts\":[{\"id\":0,\"position\":{\"x\":430.87622908256424,\"y\":160.5494229384077,\"z\":1000,\"width\":282.6767617548033,\"height\":111.1496004958207,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(output_df.Diabetes_Type)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Diabetes_Type\"}},\"Function\":3},\"Name\":\"Min(output_df.Diabetes_Type)\",\"NativeReferenceName\":\"First Diabetes_Type\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 111.15,
+          "width": 282.68,
+          "x": 430.88,
+          "y": 160.55,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"57e0111c790269c30b5e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":76.84416824402419,\"y\":579.0756964103251,\"z\":4000,\"width\":148.19946732776094,\"height\":32.93321496172465,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Patient Information\",\"textStyle\":{\"fontSize\":\"12pt\"}}]}]}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 32.93,
+          "width": 148.20,
+          "x": 76.84,
+          "y": 579.08,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"60c84366bb25efd723f2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":76.84416824402419,\"y\":612.0089113720499,\"z\":2000,\"width\":821.9581567530445,\"height\":82.33303740431164,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"output_df.Age\"},{\"queryRef\":\"output_df.BMI\"},{\"queryRef\":\"output_df.HbA1c\"},{\"queryRef\":\"output_df.Fasting_Glucose\"},{\"queryRef\":\"output_df.Family_History\"},{\"queryRef\":\"output_df.Hypertension\"},{\"queryRef\":\"output_df.Is_Pregnant\"},{\"queryRef\":\"output_df.Kidney_Function\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Age\"},\"Name\":\"output_df.Age\",\"NativeReferenceName\":\"Age\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"BMI\"},\"Name\":\"output_df.BMI\",\"NativeReferenceName\":\"BMI\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"HbA1c\"},\"Name\":\"output_df.HbA1c\",\"NativeReferenceName\":\"HbA1c\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Fasting_Glucose\"},\"Name\":\"output_df.Fasting_Glucose\",\"NativeReferenceName\":\"Fasting_Glucose\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Family_History\"},\"Name\":\"output_df.Family_History\",\"NativeReferenceName\":\"Family_History\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Hypertension\"},\"Name\":\"output_df.Hypertension\",\"NativeReferenceName\":\"Hypertension\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Is_Pregnant\"},\"Name\":\"output_df.Is_Pregnant\",\"NativeReferenceName\":\"Is_Pregnant\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Kidney_Function\"},\"Name\":\"output_df.Kidney_Function\",\"NativeReferenceName\":\"Kidney_Function\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Age\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnHeaders\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"grid\":[{\"properties\":{\"gridVertical\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"outlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}},\"outlineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 82.33,
+          "width": 821.96,
+          "x": 76.84,
+          "y": 612.01,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"adf0d7dcb0f86e3829a9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":430.87622908256424,\"y\":303.2600211058812,\"z\":5000,\"width\":834.3081123636912,\"height\":264.8379369838691,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"output_df.Treatment_Option\",\"active\":true}],\"Series\":[{\"queryRef\":\"output_df.Predicted_Future_HbA1c\"}],\"Y\":[{\"queryRef\":\"CountNonNull(output_df.Predicted_Future_HbA1c)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"output_df\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Treatment_Option\"},\"Name\":\"output_df.Treatment_Option\",\"NativeReferenceName\":\"Treatment_Option1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Predicted_Future_HbA1c\"},\"Name\":\"output_df.Predicted_Future_HbA1c\",\"NativeReferenceName\":\"Predicted_Future_HbA1c\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Predicted_Future_HbA1c\"}},\"Function\":1},\"Name\":\"CountNonNull(output_df.Predicted_Future_HbA1c)\",\"NativeReferenceName\":\"Average of Predicted_Future_HbA1c\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Predicted_Future_HbA1c\"}},\"Function\":1}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"titleText\":{\"expr\":{\"Literal\":{\"Value\":\"'Predicted HbA1c (%)'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Predicted Treatment Effectiveness'\"}}},\"underline\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Arithmetic\":{\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"output_df\"}},\"Property\":\"Predicted_Future_HbA1c\"}},\"Function\":5}},\"Right\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"output_df\"}},\"Property\":\"Predicted_Future_HbA1c\"}},\"Function\":5}},\"Scope\":[]}},\"Operator\":3}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false}]",
+          "height": 264.84,
+          "width": 834.31,
+          "x": 430.88,
+          "y": 303.26,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"b96e70867ccd87125441\",\"layouts\":[{\"id\":0,\"position\":{\"x\":758.8361614097389,\"y\":161.92164022847956,\"z\":6000,\"width\":421.2707080520612,\"height\":111.1496004958207,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"PatientInputTable.Best Recommended Treatment\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"PatientInputTable\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Best Recommended Treatment\"},\"Name\":\"PatientInputTable.Best Recommended Treatment\",\"NativeReferenceName\":\"Best Recommended Treatment\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 111.15,
+          "width": 421.27,
+          "x": 758.84,
+          "y": 161.92,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"c7f28f3755a321cb5665\",\"layouts\":[{\"id\":0,\"position\":{\"x\":315.6099767165279,\"y\":20.58325935107791,\"z\":3000,\"width\":732.7640328983736,\"height\":64.49421263337744,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Personalized Diabetes Treatment Plan\",\"textStyle\":{\"fontSize\":\"32pt\"}}]}]}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.49,
+          "width": 732.76,
+          "x": 315.61,
+          "y": 20.58,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"f67f8748faffcef363a9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":101.54407946531768,\"y\":358.1487127087556,\"z\":7000,\"width\":214.06589725121026,\"height\":156.4327710681921,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"Y\":[{\"queryRef\":\"PatientInputTable.Best Predicted HbA1c\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"PatientInputTable\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Best Predicted HbA1c\"},\"Name\":\"PatientInputTable.Best Predicted HbA1c\",\"NativeReferenceName\":\"Best Predicted HbA1c\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Best Predicted HbA1c\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 156.43,
+          "width": 214.07,
+          "x": 101.54,
+          "y": 358.15,
+          "z": 7000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 2",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "dc4cf015594265a71f62",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"d02466c52dbe1943f87d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":148.19946732776094,\"y\":79.5886028241679,\"z\":0,\"width\":983.879796981524,\"height\":279.9323271746596,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"PatientInputTable.Selected Treatment Description V2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"PatientInputTable\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Best Treatment Description\"},\"Name\":\"PatientInputTable.Selected Treatment Description V2\",\"NativeReferenceName\":\"Best Treatment Description\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 279.93,
+          "width": 983.88,
+          "x": 148.20,
+          "y": 79.59,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"da1efcf8e9eaab4d781a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":185.2493341597012,\"y\":359.52092999882746,\"z\":1000,\"width\":908.4078460275717,\"height\":279.9323271746596,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"PatientInputTable.Selected Treatment MoA V2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"PatientInputTable\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Best Treatment MoA\"},\"Name\":\"PatientInputTable.Selected Treatment MoA V2\",\"NativeReferenceName\":\"Best Treatment MoA\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 279.93,
+          "width": 908.41,
+          "x": 185.25,
+          "y": 359.52,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
